@@ -181,8 +181,8 @@ export default function MyProfile() {
                 <FormControl
                   sx={{ display: { sm: 'flex-column', md: 'flex-row' }, gap: 2 }}
                 >
-                  <Input size="sm" placeholder="First name" />
-                  <Input size="sm" placeholder="Last name" sx={{ flexGrow: 1 }} />
+                  <Input size="sm" placeholder="First name" defaultValue="Jeff"/>
+                  <Input size="sm" placeholder="Last name" defaultValue="ubayi"sx={{ flexGrow: 1 }} />
                 </FormControl>
               </Stack>
               <Stack direction="row" spacing={2}>
@@ -294,7 +294,7 @@ export default function MyProfile() {
                 type="email"
                 startDecorator={<EmailRoundedIcon />}
                 placeholder="email"
-                defaultValue="siriwatk@test.com"
+                defaultValue="jeffubayi@test.com"
                 sx={{ flexGrow: 1 }}
               />
             </FormControl>
@@ -350,7 +350,7 @@ export default function MyProfile() {
               size="sm"
               minRows={4}
               sx={{ mt: 1.5 }}
-              defaultValue="I'm a software developer based in Bangkok, Thailand. My goal is to solve UI problems with neat CSS without using too much JavaScript."
+              defaultValue="I'm a software developer based in Nairobi, Kenya. My goal is to solve UI problems with neat CSS without using too much JavaScript."
             />
             <FormHelperText sx={{ mt: 0.75, fontSize: 'xs' }}>
               275 characters left

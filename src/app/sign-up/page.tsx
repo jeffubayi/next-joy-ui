@@ -77,7 +77,7 @@ export default function SignUp() {
                         }}
                     >
                         <Box sx={{ gap: 2, display: 'flex', alignItems: 'center' }}>
-                            <Avatar alt="Remy Sharp" sx={{ borderRadius: "10%", height: "2rem", width: "2rem" }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq56ZEZEoAO3LQM58USPv73nePUxfRscHvsZyj9pmzdA&s" />
+                            <Avatar onClick={() => router.push('/')}  alt="company" sx={{ borderRadius: "10%", height: "2rem", width: "2rem" }} src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq56ZEZEoAO3LQM58USPv73nePUxfRscHvsZyj9pmzdA&s" />
                             <Typography level="title-lg">Logicae</Typography>
                         </Box>
                         <ColorSchemeToggle />

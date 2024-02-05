@@ -126,7 +126,7 @@ export default function Sidebar() {
                 {/* <IconButton variant="soft" color="primary" size="sm">
           <BrightnessAutoRoundedIcon />
         </IconButton> */}
-                <Avatar sx={{ borderRadius: "10%", height: "2rem", width: "2rem" }} alt="logicae" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq56ZEZEoAO3LQM58USPv73nePUxfRscHvsZyj9pmzdA&s" />
+                <Avatar  onClick={() => router.push('/')} sx={{ borderRadius: "10%", height: "2rem", width: "2rem",cursor:"pointer" }} alt="logicae" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTq56ZEZEoAO3LQM58USPv73nePUxfRscHvsZyj9pmzdA&s" />
                 <Typography level="title-lg">Logicae Co.</Typography>
                 <ColorSchemeToggle sx={{ ml: 'auto' }} />
             </Box>
