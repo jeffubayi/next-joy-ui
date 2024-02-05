@@ -8,6 +8,8 @@ import ArrowForward from '@mui/icons-material/ArrowForward';
 import TwoSidedLayout from './TwoSidedLayout';
 import Star from '@mui/icons-material/Star';
 import { useRouter } from 'next/navigation'
+import PlayCircleOutlineIcon from '@mui/icons-material/PlayCircleOutline';
+
 
 export default function HeroLeft01() {
     const router = useRouter()
@@ -27,6 +29,7 @@ export default function HeroLeft01() {
                 A descriptive secondary text placeholder. Use it to explain your business
                 offer better.
             </Typography>
+          
             <Box
                 sx={{
                     display: 'flex',
@@ -36,11 +39,18 @@ export default function HeroLeft01() {
                     '& > *': { flex: 'auto' },
                 }}
             >
-                <Button  size="md" endDecorator={<ArrowForward />} onClick={() => router.push('/sign-up')}>
-                    Sign In
-                </Button>
-                <Button  size="md" endDecorator={<ArrowForward />} onClick={() => router.push('/sign-in')}>
+                <Button size="md" onClick={() => router.push('/sign-in')}
+                    endDecorator={<ArrowForward />}>
                     Get Started
+                </Button>
+                <Button
+                    size="md"
+                    variant="outlined"
+                    color="neutral"
+                    onClick={() => router.push('/orders')}
+                    startDecorator={<PlayCircleOutlineIcon />}
+                >
+                    View Dashboard
                 </Button>
             </Box>
             <Box
