@@ -8,98 +8,48 @@ import EditNoteRoundedIcon from '@mui/icons-material/EditNoteRounded';
 import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import ChatListItem from './ChatListItem';
+
+import MessagesPane from './MessagesPane';
+import ChatsPane from './ChatsPane';
 import { ChatProps } from '@/types';
-import { toggleMessagesPane } from '@/utils';
+import { chats } from '@/data';
 
-type ChatsPaneProps = {
-  chats: ChatProps[];
-  setSelectedChat: (chat: ChatProps) => void;
-  selectedChatId: string;
-};
-
-export default function ChatsPane(props: ChatsPaneProps) {
-  const { chats, setSelectedChat, selectedChatId } = props;
+export default function MyProfile() {
+  const [selectedChat, setSelectedChat] = React.useState<ChatProps>(chats[0]);
   return (
     <Sheet
       sx={{
-        borderRight: '1px solid',
-        borderColor: 'divider',
-        height: 'calc(100dvh - var(--Header-height))',
-        overflowY: 'auto',
+        flex: 1,
+        width: '100%',
+        mx: 'auto',
+        pt: { xs: 'var(--Header-height)', sm: 0 },
+        display: 'grid',
+        gridTemplateColumns: {
+          xs: '1fr',
+          sm: 'minmax(min-content, min(30%, 400px)) 1fr',
+        },
       }}
     >
-      <Stack
-        direction="row"
-        spacing={1}
-        alignItems="center"
-        justifyContent="space-between"
-        p={2}
-        pb={1.5}
-      >
-        <Typography
-          fontSize={{ xs: 'md', md: 'lg' }}
-          component="h1"
-          fontWeight="lg"
-          endDecorator={
-            <Chip
-              variant="soft"
-              color="primary"
-              size="md"
-              slotProps={{ root: { component: 'span' } }}
-            >
-              4
-            </Chip>
-          }
-          sx={{ mr: 'auto' }}
-        >
-          Messages
-        </Typography>
-        <IconButton
-          variant="plain"
-          aria-label="edit"
-          color="neutral"
-          size="sm"
-          sx={{ display: { xs: 'none', sm: 'unset' } }}
-        >
-          <EditNoteRoundedIcon />
-        </IconButton>
-        <IconButton
-          variant="plain"
-          aria-label="edit"
-          color="neutral"
-          size="sm"
-          onClick={() => {
-            toggleMessagesPane();
-          }}
-          sx={{ display: { sm: 'none' } }}
-        >
-          <CloseRoundedIcon />
-        </IconButton>
-      </Stack>
-      <Box sx={{ px: 2, pb: 1.5 }}>
-        <Input
-          size="sm"
-          startDecorator={<SearchRoundedIcon />}
-          placeholder="Search"
-          aria-label="Search"
-        />
-      </Box>
-      <List
+      <Sheet
         sx={{
-          py: 0,
-          '--ListItem-paddingY': '0.75rem',
-          '--ListItem-paddingX': '1rem',
+          position: { xs: 'fixed', sm: 'sticky' },
+          transform: {
+            xs: 'translateX(calc(100% * (var(--MessagesPane-slideIn, 0) - 1)))',
+            sm: 'none',
+          },
+          transition: 'transform 0.4s, width 0.4s',
+          zIndex: 100,
+          width: '100%',
+          top: 52,
         }}
       >
-        {chats?.map((chat) => (
-          <ChatListItem
-            key={chat.id}
-            {...chat}
-            setSelectedChat={setSelectedChat}
-            selectedChatId={selectedChatId}
-          />
-        ))}
-      </List>
+        <ChatsPane
+          chats={chats}
+          selectedChatId={selectedChat.id}
+          setSelectedChat={setSelectedChat}
+        />
+      </Sheet>
+      <MessagesPane chat={selectedChat} />
     </Sheet>
   );
 }
