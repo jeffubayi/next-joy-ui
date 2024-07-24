@@ -1,12 +1,20 @@
 "use client";
-import * as React from 'react';
-import GlobalStyles from '@mui/joy/GlobalStyles';
+import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
+import GroupRoundedIcon from '@mui/icons-material/GroupRounded';
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
+import QuestionAnswerRoundedIcon from '@mui/icons-material/QuestionAnswerRounded';
+import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
+import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
+import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
+import SupportRoundedIcon from '@mui/icons-material/SupportRounded';
 import Avatar from '@mui/joy/Avatar';
 import Box from '@mui/joy/Box';
 import Button from '@mui/joy/Button';
 import Card from '@mui/joy/Card';
 import Chip from '@mui/joy/Chip';
 import Divider from '@mui/joy/Divider';
+import GlobalStyles from '@mui/joy/GlobalStyles';
 import IconButton from '@mui/joy/IconButton';
 import Input from '@mui/joy/Input';
 import LinearProgress from '@mui/joy/LinearProgress';
@@ -14,26 +22,14 @@ import List from '@mui/joy/List';
 import ListItem from '@mui/joy/ListItem';
 import ListItemButton, { listItemButtonClasses } from '@mui/joy/ListItemButton';
 import ListItemContent from '@mui/joy/ListItemContent';
-import Typography from '@mui/joy/Typography';
 import Sheet from '@mui/joy/Sheet';
 import Stack from '@mui/joy/Stack';
-import SearchRoundedIcon from '@mui/icons-material/SearchRounded';
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
-import ShoppingCartRoundedIcon from '@mui/icons-material/ShoppingCartRounded';
-import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
-import QuestionAnswerRoundedIcon from '@mui/icons-material/QuestionAnswerRounded';
-import GroupRoundedIcon from '@mui/icons-material/GroupRounded';
-import SupportRoundedIcon from '@mui/icons-material/SupportRounded';
-import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
-import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
-import BrightnessAutoRoundedIcon from '@mui/icons-material/BrightnessAutoRounded';
-import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
-import { useRouter, usePathname } from 'next/navigation'
+import Typography from '@mui/joy/Typography';
+import { usePathname, useRouter } from 'next/navigation';
+import * as React from 'react';
 
-import ColorSchemeToggle from '../ThemeRegistry/ColorSchemeToggle';
 import { closeSidebar } from '../../utils';
+import ColorSchemeToggle from '../ThemeRegistry/ColorSchemeToggle';
 
 function Toggler({
     defaultExpanded = false,
@@ -157,7 +153,7 @@ export default function Sidebar() {
                         <ListItemButton
                             role="menuitem"
                             component="a"
-                            href="/dashboard"
+                            onClick={() => router.push('/dashboard')}
                             selected={pathname == "/dashboard"}
                         >
                             <DashboardRoundedIcon />
@@ -171,7 +167,7 @@ export default function Sidebar() {
                         <ListItemButton
                             role="menuitem"
                             component="a"
-                            href="/orders"
+                            onClick={() => router.push('/orders')}
                             selected={pathname == "/orders"}
                         >
                             <ShoppingCartRoundedIcon />
@@ -213,7 +209,7 @@ export default function Sidebar() {
                         <ListItemButton
                             role="menuitem"
                             component="a"
-                            href="/messages"
+                            onClick={() => router.push('/messages')}
                             selected={pathname == "/messages"}
                         >
                             <QuestionAnswerRoundedIcon />
@@ -230,7 +226,7 @@ export default function Sidebar() {
                         <ListItemButton
                             role="menuitem"
                             component="a"
-                            href="/profile"
+                            onClick={() => router.push('/profile')}
                             selected={pathname == "/profile"}
                         >
                             <GroupRoundedIcon />
