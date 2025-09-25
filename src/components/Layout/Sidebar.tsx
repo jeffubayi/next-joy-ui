@@ -288,11 +288,11 @@ export default function Sidebar() {
                 <Avatar
                     variant="outlined"
                     size="sm"
-                    src="https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?auto=format&fit=crop&w=286"
+                    src="https://avatars.githubusercontent.com/u/47192245?v=4"
                 />
                 <Box sx={{ minWidth: 0, flex: 1 }}>
                     <Typography level="title-sm">Jeff Ubayi</Typography>
-                    <Typography level="body-xs">jeffubayi@test.com</Typography>
+                    <Typography level="body-xs">ubeezy@github.com</Typography>
                 </Box>
                 <IconButton size="sm" variant="plain" color="neutral" onClick={() => router.push('/sign-up')}>
                     <LogoutRoundedIcon />
